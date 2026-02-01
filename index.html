@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Srini | AI & Robotics Research Portfolio</title>
+  <meta name="description" content="Portfolio of Srini – AI & Robotics Researcher focused on Computer Vision, medical 3D imaging, and physical rehabilitation." />
+
+  <!-- Icons (Email / Phone / GitHub) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --border: #e2e8f0;
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ================= NAV ================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248,250,252,0.95);
+      border-bottom: 3px solid var(--accent-soft); /* brighter top border */
+    }
+
+    .ugv-banner {
+      position: relative;
+      height: 32px;
+      overflow: hidden;
+      background: linear-gradient(90deg, #eff6ff, #e0f2fe, #eff6ff);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ugv-track {
+      position: absolute;
+      left: -120px;
+      top: 4px;
+      width: 120px;
+      height: 24px;
+      animation: ugv-move 10s linear infinite;
+    }
+
+    .ugv-track.two { top: 8px; animation-duration: 12s; animation-delay: -4s; }
+    .ugv-track.three { top: 2px; animation-duration: 9s; animation-delay: -2s; }
+
+    .ugv-track svg {
+      display: block;
+      width: 120px;
+      height: 24px;
+    }
+
+    @keyframes ugv-move {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(100vw + 240px)); }
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0.95rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      min-width: 220px;
+    }
+
+    .brand .brandline {
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      color: #1d4ed8;
+      font-size: 1.05rem;
+    }
+
+    .brand .tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    nav .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+
+    nav .menu a {
+      font-size: 0.95rem;
+      color: var(--muted);
+      padding: 0.35rem 0.5rem;
+      border-radius: 10px;
+    }
+
+    nav .menu a:hover {
+      color: var(--accent);
+      background: #eef2ff;
+      text-decoration: none;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 3.5rem 1.5rem 4.5rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: stretch;
+    }
+
+
+    /* Identity block (TOP LEFT) */
+    .identity {
+      max-width: 720px;
+    }
+
+    /* Joined nickname with different colors per word */
+    .nickname {
+      font-size: 2.9rem;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    .nickname span { display: inline-block; }
+    .yc  { color: #2563eb; } /* soft blue */
+    .yc2 { color: #0ea5e9; } /* sky */
+    .yc3 { color: #16a34a; } /* green */
+    .yc4 { color: #ca8a04; } /* amber */
+    .yc5 { color: #7c3aed; } /* violet */
+
+    .role {
+      margin-top: 0.6rem;
+      font-size: 1.02rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .about-me {
+      margin-top: 1.7rem;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .about-me p {
+      margin: 0 0 1.1rem;
+    }
+
+    .about-me strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .about-me .hook {
+      background: #eef2ff;
+      border: 1px solid #e0e7ff;
+      color: #1e293b;
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ================= SKILLS ================= */
+    .skills-section {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .skills-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .skills-card h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.1rem;
+      color: #0b1220;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skills-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .skill-tag {
+      font-size: 0.88rem;
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+    }
+
+    .tag-lang { background: #eff6ff; color: #1d4ed8; border-color: #dbeafe; }
+    .tag-web  { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+    .tag-ml   { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+    .tag-tools{ background: #ede9fe; color: #5b21b6; border-color: #ddd6fe; }
+
+    .tag-langskill { background: #ecfeff; color: #0f766e; border-color: #99f6e4; }
+
+    /* ================= IROS HERO GALLERY (TOP RIGHT) ================= */
+    .iros-hero {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      height: 100%;
+    }
+
+    .iros-main,
+    .iros-subgrid,
+    .ki-block {
+      flex: 1;
+    }
+
+    .iros-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 10%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .iros-main {
+      aspect-ratio: 1 / 1;
+    }
+
+    .iros-subgrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.55rem;
+      height: 100%;
+      grid-auto-rows: 1fr;
+    }
+
+    .iros-subgrid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .iros-caption {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .ki-block img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display: block;
+      margin-top: 0.25rem;
+    }
+
+    .ki-caption {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .ki-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    /* ================= SECTIONS ================= */
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 3.75rem 1.5rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin: 0 0 1.5rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+      color: #0b1220;
+    }
+
+    .pub-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .pub-header h2 {
+      margin: 0 0 1.5rem;
+      flex: 1;
+    }
+
+    .pub-robot {
+      width: 64px;
+      height: 64px;
+      flex: 0 0 64px;
+    }
+
+    .pub-robot .arm {
+      transform-origin: 44px 28px;
+      animation: dance 1.6s ease-in-out infinite;
+    }
+
+    .pub-robot .head {
+      animation: bob 1.6s ease-in-out infinite;
+    }
+
+    @keyframes dance {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-15deg); }
+      50% { transform: rotate(12deg); }
+      75% { transform: rotate(-8deg); }
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.5rem;
+    }
+
+    .card h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.25rem;
+      color: #0b1220;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.2rem;
+    }
+
+    /* ================= CONTACT ================= */
+    .contact {
+      position: relative;
+      padding-right: 220px;
+    }
+
+    .contact p {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: var(--muted);
+      margin: 0.75rem 0;
+      font-size: 1rem;
+    }
+
+    .contact i {
+      color: var(--accent);
+      width: 20px;
+      text-align: center;
+    }
+
+    .robot-wrap {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .robot {
+      width: 180px;
+      height: 160px;
+    }
+
+    .robot .arm {
+      transform-origin: 150px 70px;
+      animation: wave 2.2s ease-in-out infinite;
+    }
+
+    .robot .eye {
+      transform-origin: center;
+      animation: blink 4.5s ease-in-out infinite;
+    }
+
+    .robot .bubble {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      30% { transform: rotate(-12deg); }
+      60% { transform: rotate(8deg); }
+    }
+
+    @keyframes blink {
+      0%, 92%, 100% { transform: scaleY(1); }
+      94% { transform: scaleY(0.1); }
+      96% { transform: scaleY(1); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .iros-caption { text-align: right; }
+      .nickname { font-size: 2.5rem; }
+      .contact { padding-right: 1.5rem; }
+      .robot-wrap { position: static; margin-top: 1rem; justify-content: center; }
+      .skills-section { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px) {
+      .nickname { font-size: 2.1rem; }
+      nav { align-items: flex-start; }
+      .brand { min-width: auto; }
+    }
+    .brandline .b1 { color: #bfdbfe; }
+    .brandline .b2 { color: #93c5fd; }
+    .brandline .b3 { color: #60a5fa; }
+    .brandline .b4 { color: #3b82f6; }
+    .brandline .b5 { color: #2563eb; }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="ugv-banner" aria-hidden="true">
+    <div class="ugv-track">
+      <svg viewBox="0 0 120 24" role="img" aria-label="UGV moving left to right">
+        <rect x="84" y="8" width="22" height="10" rx="3" fill="#38bdf8" stroke="#0284c7"/>
+        <rect x="88" y="6" width="10" height="6" rx="2" fill="#bae6fd" stroke="#38bdf8"/>
+        <circle cx="90" cy="20" r="3" fill="#0f172a"/>
+        <circle cx="102" cy="20" r="3" fill="#0f172a"/>
+      </svg>
+    </div>
+    <div class="ugv-track two">
+      <svg viewBox="0 0 120 24" role="img" aria-label="UGV moving left to right">
+        <rect x="84" y="8" width="22" height="10" rx="3" fill="#fbbf24" stroke="#d97706"/>
+        <rect x="88" y="6" width="10" height="6" rx="2" fill="#fde68a" stroke="#f59e0b"/>
+        <circle cx="90" cy="20" r="3" fill="#0f172a"/>
+        <circle cx="102" cy="20" r="3" fill="#0f172a"/>
+      </svg>
+    </div>
+    <div class="ugv-track three">
+      <svg viewBox="0 0 120 24" role="img" aria-label="UGV moving left to right">
+        <rect x="84" y="8" width="22" height="10" rx="3" fill="#34d399" stroke="#059669"/>
+        <rect x="88" y="6" width="10" height="6" rx="2" fill="#a7f3d0" stroke="#10b981"/>
+        <circle cx="90" cy="20" r="3" fill="#0f172a"/>
+        <circle cx="102" cy="20" r="3" fill="#0f172a"/>
+      </svg>
+    </div>
+  </div>
+  <nav>
+    <div class="brand">
+      <div class="brandline">
+        <span class="b1">You</span><span class="b2">Can</span><span class="b3">Call</span><span class="b4">Me</span><span class="b5">Srini</span>
+      </div>
+      <div class="tagline">AI & Robotics Research · Computer Vision</div>
+    </div>
+
+    <div class="menu">
+      <a href="#thesis">Thesis</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+
+  <!-- LEFT: Identity + About -->
+  <div class="identity">
+    <h1 class="nickname" aria-label="Srinivas Kachavarpu">
+      Srinivas Kachavarpu <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+    </h1>
+
+    <div class="role">
+      AI & Robotics Researcher · Computer Vision · Former Data Scientist
+    </div>
+
+    <div class="about-me">
+      <div class="hook">
+        <strong>I’m a Swiss-army knife for organizations looking for business value</strong>, research-minded, engineering-driven, and comfortable owning the full pipeline from idea to deployment.
+      </div>
+
+      <p>
+        I hold a <strong>Master’s degree in Digital Technologies</strong> and currently work as a
+        <strong>Research Assistant</strong> at <strong>Ostfalia University of Applied Sciences</strong>, Germany.
+        My research focuses on <strong>computer vision</strong> with applications in <strong>medical 3D imaging</strong>
+        and <strong>physical rehabilitation</strong>.
+      </p>
+
+      <p>
+        During my Bachelor’s in <strong>Mechanical Engineering</strong>, I had the chance to collaborate with
+        computer science classmates. That experience gradually shifted my interests toward software development,
+        especially <strong>data analysis</strong>. At the time, not having a formal computer science degree felt
+        like a constraint, and it pushed me to intentionally bridge that gap.
+      </p>
+
+      <p>
+        I pursued the <strong>Digital Technologies</strong> Master’s program, a joint track between
+        <strong>Ostfalia University</strong> and <strong>TU Clausthal</strong>, which became a turning point.
+        I went deeper into software engineering, and my curiosity for data led me into <strong>big data</strong>,
+        <strong>machine learning</strong>, and <strong>deep learning</strong>. In parallel, my interest in systems
+        and autonomy drove me into <strong>robotics</strong>, where I excelled across both worlds.
+      </p>
+
+      <p>
+        Throughout my Master’s, I worked on multiple hands-on projects that turned theory into working systems.
+        One defining experience was <strong>FireBot (now Warden Robotics)</strong>, started as a startup incubation effort.
+        I contributed end-to-end: deep learning-based fire detection, autonomous navigation and motion planning,
+        high-level integration of perception and robotics modules, software architecture design, Git submodule setup,
+        and CI/CD with Docker-based deployment.
+      </p>
+
+      <p>
+        This work strengthened my problem-solving, analytical thinking, teamwork, independence under pressure,
+        and clear communication of technical ideas. Building a full system raised an important question:
+        <em>how do we deploy such robots reliably at scale?</em> That question motivated independent research and resulted
+        in a novel coverage path planning algorithm, <strong>FaReCPP</strong>, which was accepted and presented at
+        <strong>IROS 2025 in Hangzhou, China</strong>.
+      </p>
+
+      <p>
+        In parallel, I deepened my research experience in computer vision through contributions to peer-reviewed work,
+        including publications at <strong>ISBS</strong> and <strong>MIUA</strong>.
+      </p>
+
+      <p>
+        Looking ahead, my interests span <strong>foundation models for computer vision</strong>, <strong>diffusion models</strong>,
+        and <strong>large language models</strong>, with a long-term drive to contribute to the broader vision of
+        Artificial General Intelligence.
+      </p>
+    </div>
+
+    <div class="skills-section">
+      <div class="skills-card">
+        <h3>Skills</h3>
+        <div class="skills-tags">
+          <span class="skill-tag tag-lang">Python</span>
+          <span class="skill-tag tag-lang">C++</span>
+          <span class="skill-tag tag-lang">Rust</span>
+          <span class="skill-tag tag-lang">JavaScript</span>
+          <span class="skill-tag tag-web">HTML</span>
+          <span class="skill-tag tag-web">CSS</span>
+          <span class="skill-tag tag-ml">PyTorch</span>
+          <span class="skill-tag tag-ml">PyTorch Lightning</span>
+          <span class="skill-tag tag-ml">TensorFlow</span>
+          <span class="skill-tag tag-ml">Keras</span>
+          <span class="skill-tag tag-ml">W&B</span>
+          <span class="skill-tag tag-tools">Django</span>
+          <span class="skill-tag tag-tools">Flask</span>
+          <span class="skill-tag tag-tools">REST APIs</span>
+          <span class="skill-tag tag-tools">Jupyter Notebook</span>
+          <span class="skill-tag tag-tools">Bash</span>
+          <span class="skill-tag tag-tools">Git</span>
+          <span class="skill-tag tag-tools">GitHub</span>
+          <span class="skill-tag tag-tools">GitLab</span>
+        </div>
+      </div>
+
+      <div class="skills-side">
+        <div class="skills-card">
+          <h3>Language Skills</h3>
+          <div class="skills-tags">
+            <span class="skill-tag tag-langskill">Telugu · Native</span>
+            <span class="skill-tag tag-langskill">English · C1</span>
+            <span class="skill-tag tag-langskill">German · B1</span>
+          </div>
+        </div>
+
+        <div class="skills-card">
+          <h3>Hobbies</h3>
+          <div class="skills-tags">
+          <span class="skill-tag tag-langskill">Gym</span>
+          <span class="skill-tag tag-langskill">Badminton</span>
+          <span class="skill-tag tag-langskill">Coding</span>
+          <span class="skill-tag tag-langskill">Fishing</span>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: IROS Gallery -->
+  <div class="iros-hero">
+    <div class="iros-main">
+      <a href="assets/iros/iros2.jpeg" target="_blank" rel="noopener noreferrer" title="Open full size">
+        <img src="assets/iros/iros2.jpeg" alt="IROS 2025 — Hangzhou, China (main photo)">
+      </a>
+    </div>
+
+    <div class="iros-subgrid">
+      <a href="assets/iros/iros1.jpeg" target="_blank" rel="noopener noreferrer" title="Open full size">
+        <img src="assets/iros/iros1.jpeg" alt="IROS 2025 photo 1">
+      </a>
+      <a href="assets/iros/iros3.jpeg" target="_blank" rel="noopener noreferrer" title="Open full size">
+        <img src="assets/iros/iros3.jpeg" alt="IROS 2025 photo 3">
+      </a>
+      <a href="assets/iros/iros4.jpeg" target="_blank" rel="noopener noreferrer" title="Open full size">
+        <img src="assets/iros/iros4.jpeg" alt="IROS 2025 photo 4">
+      </a>
+    </div>
+
+    <div class="iros-caption">At IROS 2025, Hangzhou, China</div>
+
+    <div class="ki-block">
+      <a href="assets/hannover/ki.jpeg" target="_blank" rel="noopener noreferrer" title="Open full size">
+        <img src="assets/hannover/ki.jpeg" alt="KI Forum Hannover 2024 poster presentation by our group">
+      </a>
+      <div class="ki-caption">At KI Forum Hannover 2024, two poster presentations from our group</div>
+    </div>
+
+    <div class="ki-block">
+      <a href="assets/iros/firebot.jpg" target="_blank" rel="noopener noreferrer" title="Open full size">
+        <img src="assets/iros/firebot.jpg" alt="FireBot review presentation by our team, TUniCorn 2023 winners">
+      </a>
+      <div class="ki-caption">During the review party presentation of our academic startup; our team won TUniCorn 2023</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= PUBLICATIONS ================= -->
+<section id="publications">
+  <div class="pub-header">
+    <svg class="pub-robot" viewBox="0 0 64 64" role="img" aria-label="Dancing robot">
+      <rect class="head" x="16" y="6" width="32" height="20" rx="6" fill="#e0f2fe" stroke="#38bdf8"/>
+      <circle cx="26" cy="16" r="3" fill="#0f172a"/>
+      <circle cx="38" cy="16" r="3" fill="#0f172a"/>
+      <rect x="22" y="26" width="20" height="18" rx="6" fill="#bae6fd" stroke="#38bdf8"/>
+      <g class="arm">
+        <rect x="40" y="28" width="14" height="6" rx="3" fill="#bae6fd" stroke="#38bdf8"/>
+        <circle cx="56" cy="31" r="4" fill="#bae6fd" stroke="#38bdf8"/>
+      </g>
+      <rect x="10" y="28" width="14" height="6" rx="3" fill="#bae6fd" stroke="#38bdf8"/>
+    </svg>
+    <h2>AI Publications</h2>
+    <svg class="pub-robot" viewBox="0 0 64 64" role="img" aria-label="Dancing robot">
+      <rect class="head" x="16" y="6" width="32" height="20" rx="6" fill="#fde68a" stroke="#f59e0b"/>
+      <circle cx="26" cy="16" r="3" fill="#0f172a"/>
+      <circle cx="38" cy="16" r="3" fill="#0f172a"/>
+      <rect x="22" y="26" width="20" height="18" rx="6" fill="#fcd34d" stroke="#f59e0b"/>
+      <g class="arm">
+        <rect x="40" y="28" width="14" height="6" rx="3" fill="#fcd34d" stroke="#f59e0b"/>
+        <circle cx="56" cy="31" r="4" fill="#fcd34d" stroke="#f59e0b"/>
+      </g>
+      <rect x="10" y="28" width="14" height="6" rx="3" fill="#fcd34d" stroke="#f59e0b"/>
+    </svg>
+  </div>
+  <div class="card">
+    <ul>
+      <li><strong>IROS 2025</strong> — Srinivas Kachavarapu, Tobias Dörnbach, Reinhard Gerndt; “Fast-Revisit Coverage Path Planning for Autonomous Mobile Patrol Robots Using Long-Range Sensor Information,” Hangzhou, China.</li>
+      <li><strong>ISBS 2025</strong> — Dominik Batic, Srinivas Kachavarapu, Faycal Nait Irahal, Dagmar Meyer, Carsten Meyer; “Towards AI-based at-home physiotherapy for the elderly: Comparing MoveNet with ViTPose in human pose estimation,” Doha, Qatar.</li>
+      <li><strong>MIUA 2024</strong> — M. F. Shaikh, E. B. Yilmaz, O. M. Akinloye, S. Freitag-Wolf, S. Kachavarapu, N. Krekiehn, C.-C. Glüer, E. Orwoll, and C. Meyer; “CNN-Based Osteoporotic Vertebral Fracture Prediction and Risk Assessment on MrOS CT Data: Impact of CNN Model Architecture,” UK.</li>
+      <li><strong>KIForum 2024</strong> — D. Batić, S. Kachavarapu, C. Meyer, F. Nait Irahal, S. User, and D. Meyer; “AI-driven Digital Support and Analysis for Home Physiotherapy Before and After Orthopedic Surgery,” Hannover, Germany.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= THESIS ================= -->
+<section id="thesis">
+  <h2>Master’s Thesis</h2>
+  <div class="card">
+    <h3>Analyzing Temporal Consistency in 2D Human Pose Estimation</h3>
+    <p>
+      I investigated temporal instability in deep learning–based pose estimation on exercise videos, focusing on how
+      frame-by-frame predictions create jitter and reduce clinical usability. I evaluated transformer-based models and
+      introduced lightweight temporal filtering, reducing temporal consistency error by <strong>9%</strong> on 90 FPS
+      physiotherapy datasets.
+    </p>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <h2>Selected Projects</h2>
+
+  <div class="card">
+    <h3>FireBot / Warden Robotics</h3>
+    <p>
+      Autonomous patrol robot system including deep learning–based fire detection, motion planning, and high-level
+      integration of robotics and perception modules. Contributions included architecture, CI/CD workflows, and
+      Docker-based deployment.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>LLM Integrated PDF Analyzer</h3>
+    <p>
+      Research assistant tool leveraging Retrieval-Augmented Generation (RAG) for paper summarization, verification, and
+      context-aware interaction. Built with modern orchestration tools to support real research workflows.
+    </p>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card contact">
+    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:sr.kachavarapu@gmail.com">sr.kachavarapu@gmail.com</a></p>
+    <p><i class="fa-solid fa-phone"></i> <a href="tel:+4915906385472">+49 159 063 85472</a></p>
+    <p><i class="fa-brands fa-github"></i> <a href="https://github.com/SrinikAi" target="_blank" rel="noopener noreferrer">github.com/SrinikAi</a></p>
+    <!-- If you want GitLab too, add it here:
+    <p><i class="fa-brands fa-gitlab"></i> <a href="https://gitlab.com/yourusername" target="_blank" rel="noopener noreferrer">gitlab.com/yourusername</a></p>
+    -->
+    <div class="robot-wrap" aria-hidden="true">
+      <svg class="robot" viewBox="0 0 220 180" role="img" aria-label="Friendly robot waving hello">
+        <g class="bubble">
+          <rect x="145" y="18" width="52" height="26" rx="8" fill="#e0f2fe" stroke="#7dd3fc"/>
+          <text x="171" y="36" text-anchor="middle" font-size="12" fill="#0284c7" font-family="Inter, system-ui, sans-serif">Hi</text>
+          <path d="M158 44 L152 52 L162 48 Z" fill="#e0f2fe" stroke="#7dd3fc"/>
+        </g>
+
+        <rect x="60" y="48" width="100" height="88" rx="14" fill="#e0f2fe" stroke="#7dd3fc"/>
+        <rect x="50" y="32" width="120" height="22" rx="10" fill="#bae6fd" stroke="#38bdf8"/>
+        <rect x="82" y="88" width="56" height="24" rx="12" fill="#38bdf8" stroke="#0284c7"/>
+
+        <circle class="eye" cx="92" cy="78" r="6" fill="#0f172a"/>
+        <circle class="eye" cx="128" cy="78" r="6" fill="#0f172a"/>
+
+        <rect x="28" y="76" width="34" height="10" rx="5" fill="#bae6fd" stroke="#38bdf8"/>
+        <rect x="160" y="76" width="34" height="10" rx="5" fill="#bae6fd" stroke="#38bdf8"/>
+        <g class="arm">
+          <rect x="160" y="70" width="38" height="12" rx="6" fill="#bae6fd" stroke="#38bdf8"/>
+          <circle cx="202" cy="76" r="8" fill="#bae6fd" stroke="#38bdf8"/>
+        </g>
+
+        <rect x="88" y="136" width="18" height="22" rx="6" fill="#bae6fd" stroke="#38bdf8"/>
+        <rect x="114" y="136" width="18" height="22" rx="6" fill="#bae6fd" stroke="#38bdf8"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 · Srini · Portfolio
+</footer>
+
+</body>
+</html>
